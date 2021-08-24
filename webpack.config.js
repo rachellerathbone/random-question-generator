@@ -6,10 +6,11 @@ const HtmlWebPackPlugin = require('html-webpack-plugin');
 // of a template file that this plugin will use.
 // We will create it later.
 const htmlPlugin = new HtmlWebPackPlugin({
-  template: './public/index.html',
+  // template: './public/index.html',
+  name: 'index.html',
+  inject: false,
+  template: path.resolve(__dirname, 'public/index.html'),
 });
-
-const hotReloadPlugin = new webpack.HotModuleReplacementPlugin();
 
 module.exports = {
   // Our application entry point.
@@ -44,8 +45,8 @@ module.exports = {
     path: path.resolve(__dirname, 'public'),
   },
 
-  // Use the html plugin.
-  plugins: [htmlPlugin, hotReloadPlugin],
+  // Use the plugins.
+  plugins: [htmlPlugin],
 
   devServer: {
     contentBase: path.join(__dirname, 'public'),
