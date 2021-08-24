@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { BannerContainer, BannerMessage } from './banner.styles';
+import { BannerContainer, BannerMessage } from './banner.style';
 
 export interface BannerProps {
   children?: React.ReactNode;

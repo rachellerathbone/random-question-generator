@@ -30,3 +30,19 @@ export const QuestionDisplayHeader = styled.h1`
   max-width: 450px;
   text-align: center;
 `;
+
+export const QuestionContainer = styled.div`
+  align-items: center;
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  margin-top: 7em;
+  width: 100%;
+`;
+
+export const QuestionButtonsContainer = styled.div`
+  bottom: 0;
+  display: flex;
+  justify-content: space-between;
+  width: 16em;
+`;
