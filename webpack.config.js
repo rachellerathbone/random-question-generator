@@ -9,8 +9,6 @@ const htmlPlugin = new HtmlWebPackPlugin({
   template: './public/index.html',
 });
 
-const hotReloadPlugin = new webpack.HotModuleReplacementPlugin();
-
 module.exports = {
   // Our application entry point.
   entry: './src/ui/index.tsx',
@@ -44,8 +42,8 @@ module.exports = {
     path: path.resolve(__dirname, 'public'),
   },
 
-  // Use the html plugin.
-  plugins: [htmlPlugin, hotReloadPlugin],
+  // Use the plugins.
+  plugins: [htmlPlugin],
 
   devServer: {
     contentBase: path.join(__dirname, 'public'),
