@@ -1,10 +1,8 @@
 FROM node:14-alpine
 
-COPY . /opt/service/
-WORKDIR /opt/service
+COPY . /app
+WORKDIR /app
 
 RUN npm ci
-
-EXPOSE 8080
 
 CMD ["npm", "start"]
