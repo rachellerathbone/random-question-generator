@@ -1,0 +1,24 @@
+buildNumber: 0.0.1
+compose:
+  microservice:
+    image: docker.atl-paas.net/atlassian/random-question-generator
+    ports:
+    - 8080:8080
+    tag: latest
+description: random question generator
+links:
+  healthcheck:
+    uri: /healthcheck
+  source:
+    url: https://github.com/rachellerathbone/random-question-generator
+name: random question generator
+notifications:
+  email: atrigueiro@atlassian.com
+organization: Engineering-DevOps
+resources:
+  - type: dynamo-db
+    name: questions-list
+    attributes:
+      ReadWriteCapacityMode: ON_DEMAND
+      HashKeyName: QuestionUUID
+      HashKeyType: S
