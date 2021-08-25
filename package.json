@@ -5,6 +5,7 @@
   "main": "webpack.config.js",
   "scripts": {
     "start:client": "webpack serve --config ./webpack.config.js --mode development",
+    "start:server": "node src/server/app.ts",
     "start": "npm run start:client",
     "test:client": "jest",
     "test:client-watch": "jest --watch",
