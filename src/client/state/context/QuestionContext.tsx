@@ -15,9 +15,11 @@ const QuestionDispatchContext = createContext<Dispatch<any> | undefined>(
 
 const useQuestionState = () => {
   const context = useContext(QuestionStateContext);
+
   if (!context) {
     throw Error('useQuestionState must be used inside QuestionProvider!');
   }
+
   return context;
 };
 
@@ -28,7 +30,6 @@ const useQuestionDispatch = () => {
   }
   return context;
 };
-
 
 type QuestionContextProviderProps = {
   children: React.ReactNode;
@@ -47,51 +48,3 @@ function QuestionProvider({ children }: QuestionContextProviderProps) {
 }
 
 export { useQuestionState, useQuestionDispatch, QuestionProvider };
-
-// import * as React from 'react';
-
-// // Defines the structure of global context store, and default values.
-// // If you're using a non-built-in type, use "as" to declare the type.
-// // This structure is the *ONLY THING* you need to customize in this file,
-// // everything else will adapt accordingly.
-
-// const initialState = {
-//   question: '',
-// };
-
-// // Global app context.
-// type StateT = typeof initialState;
-// type StateGetSetT = [StateT, React.Dispatch<React.SetStateAction<StateT>>];
-
-// const QuestionContext = React.createContext<StateGetSetT | undefined>(
-//   undefined
-// );
-
-// // Context provider, should wrap entire application.
-// type QuestionContextProviderProps = {
-//   children: React.ReactNode;
-// };
-
-// function QuestionContextProvider({ children }: QuestionContextProviderProps) {
-//   const contextGetSet = React.useState(initialState);
-//   return (
-//     <QuestionContext.Provider value={contextGetSet}>
-//       {children}
-//     </QuestionContext.Provider>
-//   );
-// }
-
-// // Custom hook to retrieve and set context state.
-// type SetPartialStateT = (newVals: Partial<StateT>) => void;
-// type UseQuestionContextT = [StateT, SetPartialStateT];
-
-// function useQuestionContext(): UseQuestionContextT {
-//   const [state, setState] = React.useContext(QuestionContext) as StateGetSetT;
-//   function setPartialState(newVals: Partial<StateT>) {
-//     setState({ ...state, ...newVals });
-//   }
-
-//   return [state, setPartialState];
-// }
-
-// export { QuestionContextProvider, useQuestionContext };

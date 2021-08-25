@@ -1,12 +1,12 @@
 import axios from 'axios';
-import { isArray, isObject } from 'util';
+import { isArray, isObject } from '../../common/helpers';
 
 axios.defaults.baseURL = 'http://localhost:8080/api';
 
 const getLanguageHeaders = () => {
   const language = 'en';
 
-  //Here we can read the language settings from local storage for e.g....
+  // Here we can read the language settings from local storage for e.g....
   return {
     'Accept-Language': language,
   };
@@ -57,12 +57,12 @@ export const processParam = (result, paramTypes, paramName, param) => {
     queryParams = {},
     data = {},
   } = result;
-  const paramType = paramTypes[paramName] || 'url';
 
+  const paramType = paramTypes[paramName] || 'url';
   let newData = data;
 
   if (paramType === 'data') {
-    //inject the content of param into data
+    // Inject the content of param into data
     newData = { ...data, ...param };
   } else if (paramType === 'body') {
     newData = { ...data, [paramName]: param };
@@ -73,6 +73,7 @@ export const processParam = (result, paramTypes, paramName, param) => {
   ) {
     newData = isObject(param) ? param : { [paramName]: param };
   }
+
   return {
     headerParams:
       paramType === 'header' ? { ...headerParams, ...newData } : headerParams,
@@ -87,7 +88,7 @@ export const processParam = (result, paramTypes, paramName, param) => {
 };
 
 /**
- * Here you can build the authorization token if you want...
+ * We can use this later to build out auth if we need it when we create accounts.
  */
 const fakeAuth = () => {
   return {

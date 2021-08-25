@@ -1,7 +1,7 @@
 import services from '../../api/services';
 import constants from '../constants';
 
-const setQuestion = (payload) => {
+const setQuestion = (payload: string) => {
   return {
     payload,
     type: constants.GET_QUESTION,
@@ -9,16 +9,16 @@ const setQuestion = (payload) => {
 };
 
 const getQuestion = ({ dispatch }) => {
-  //Get question
+  // Get question
   return (
     services
       // @ts-ignore
       .getQuestion()
       .then((result) => {
-        // dispatch(setQuestion(result.data));
-        dispatch(setQuestion('What is your favourite food?'));
+        console.log(result);
+        dispatch(setQuestion(result.data));
       })
-      .catch(() => {
+      .catch((e) => {
         dispatch(setQuestion(''));
       })
   );

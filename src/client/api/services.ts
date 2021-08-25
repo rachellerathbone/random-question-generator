@@ -1,8 +1,8 @@
 import createService from './provider';
 
 const serviceConfig = {
-  getCars: {
-    url: '/questions',
+  getQuestion: {
+    url: '/question',
     method: 'GET',
     authRequired: false,
   },
