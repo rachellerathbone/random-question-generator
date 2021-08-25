@@ -16,12 +16,14 @@ const QuestionButtons = (): JSX.Element => {
   );
 };
 
-export const Question = (): JSX.Element => {
+interface QuestionProps {
+  question: string;
+}
+
+export const Question = (props: QuestionProps): JSX.Element => {
   return (
     <QuestionContainer>
-      <QuestionDisplayHeader>
-        What is your favorite color?
-      </QuestionDisplayHeader>
+      <QuestionDisplayHeader>{props.question}</QuestionDisplayHeader>
       <QuestionButtons />
     </QuestionContainer>
   );
