@@ -1,0 +1,11 @@
+### TODOs Client
+- disable prev button if at first question
+- add functionality for 'Next' (just fire another GET)
+- decide on UI if user clicks 'Select'
+
+### Server TODOs
+- figure out how we want to handle the single question (do we get all questions for a user, filter out the ones that have been asked, then randomly return one of the remaining questions?)
+
+
+### Server and Client
+- fix all ts-ignores

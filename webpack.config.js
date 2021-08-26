@@ -14,7 +14,7 @@ const htmlPlugin = new HtmlWebPackPlugin({
 
 module.exports = {
   // Our application entry point.
-  entry: './src/ui/index.tsx',
+  entry: './src/client/index.tsx',
 
   // These rules define how to deal
   // with files with given extensions.
